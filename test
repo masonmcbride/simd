@@ -1,0 +1,17 @@
+clang -O2 -o scalar scalar.c
+clang -O2 -mavx -o avx avx.c
+clang -O2 -msse2 -o sse2 sse2.c
+clang -O2 -msse4.2 -o sse4_2 sse4_2.c
+echo "1000 Iterations of (2048,2048) @ (2048) matrix-vector mulitplication"
+echo "Using Scalar Compilation no flags\n"
+time ./scalar
+echo "\n"
+echo "Using AVX Compilation via -mavx flag\n"
+time ./avx
+echo "\n"
+echo "Using sse2 compiliation via -msse2 flag"
+time ./sse2
+echo "\n"
+echo "Using sse4_2 compilation via -msse4_2 flag"
+time ./sse4_2
+echo "\n"
